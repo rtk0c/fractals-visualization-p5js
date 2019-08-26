@@ -1,47 +1,22 @@
-let stageSlider;
 let fillEnable;
-let animateEnable;
 
-function setup() {
-  createCanvas(600, 600);
-
-  const redrawEvent = () => redraw();
-  stageSlider = createSlider(0, 8, 4, 1);
-  stageSlider.input(redrawEvent);
+function setupFractal() {
   fillEnable = createCheckbox('Fill', false);
-  fillEnable.changed(redrawEvent);
-  animateEnable = createCheckbox('Animation', false);
-  animateEnable.changed(b => {
-    if(b) {
-      frameRate(1);
-      loop();
-    } else {
-      noLoop();
-    }
-  });
-
-  noLoop();
+  fillEnable.changed(() => redraw());
+  maxStage(8);
 }
 
-function draw() {
-  if(animateEnable.checked()) {
-    const next = stageSlider.value() + 1;
-    stageSlider.value(next > 8 ? 0 : next);
-  }
-
-  background(220);
-
-  const limit = stageSlider.value();
+function drawFractal(stage) {
   // L: Move & draw one unit length in the current direction
   // +: Rotate clockwise 60 degress
   // -: Rotate counter clockwise 60 degress
   let pattern = 'L--L--L';
   let unitLength = 320;
-  for(let i = 0; i < limit; ++i) {
+  for(let i = 0; i < stage; ++i) {
     unitLength /= 3;
     pattern = pattern.replace(/L/g, 'L+L--L+L');
   }
-
+  
   if(fillEnable.checked()) {
     fill(80);
   } else {
@@ -50,7 +25,7 @@ function draw() {
   stroke(0);
   strokeWeight(2);
   let x = width/2;
-  let y = 100;
+  let y = 15;
   let d = HALF_PI + PI/6;
   beginShape();
   for(let i = 0; i < pattern.length; ++i) {

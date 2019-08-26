@@ -2,41 +2,27 @@ let ONE_THIRD_PI;
 let ONE_SIXTH_PI;
 let SQRT_3;
 
-let redrawButton;
-let stageSlider;
-
 let triangles = [];
 
-function setup() {
-  createCanvas(800, 800);
+function setupFractal() {
   ONE_THIRD_PI = PI/3;
   ONE_SIXTH_PI = PI/6;
   SQRT_3 = sqrt(3);
-
-  redrawButton = createButton('Redraw');
-  redrawButton.mousePressed(() => {
-    triangles.length = 0;
-    populate();
-    redraw();
-  });
-  stageSlider = createSlider(0, 10, 4, 1);
-
-  populate();
-  noLoop();
+  populate(4);
+  maxStage(8);
 }
 
-function populate() {
-  const limit = stageSlider.value();
+function populate(limit) {
   let stack = [];
-
+  
   const stage0 = Triangle.equilateral(new Point(width/2, height/6), HALF_PI, 360);
   triangles.push(stage0);
   stage0.edges.forEach(e => stack.push([e, stage0, 0]));
-
+  
   while(stack.length > 0) {
     const [l, parent, d] = stack.pop();
     if(d >= limit) continue;
-
+    
     const t = processLine(l, parent);
     triangles.push(t);
     stack.push([new Line(t.v1, t.v3), t, d + 1]);
@@ -57,8 +43,11 @@ function processLine(ln, parent) {
   return t;
 }
 
-function draw() {
+function drawFractal(stage) {
   background(0);
+  
+  triangles.length = 0;
+  populate(stage);
   for(const triangle of triangles) {
     triangle.render();
   }
