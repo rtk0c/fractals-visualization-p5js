@@ -1,16 +1,8 @@
-let ONE_THIRD_PI;
-let ONE_SIXTH_PI;
-let SQRT_3;
-
 let triangles = [];
 
 function setupFractal() {
   setCanvasSize(600, 600);
   maxStage(8);
-
-  ONE_THIRD_PI = PI/3;
-  ONE_SIXTH_PI = PI/6;
-  SQRT_3 = sqrt(3);
 }
 
 function populate(limit) {

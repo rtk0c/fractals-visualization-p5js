@@ -2,6 +2,10 @@
  * Base fractal visualization core, including a slider to change stage and a check box to enable animating fractals
  */
 
+let ONE_THIRD_PI;
+let ONE_SIXTH_PI;
+let SQRT_3;
+
 let stageDisplay;
 let stageSlider;
 let animateEnable;
@@ -13,6 +17,10 @@ let _overriddenCanvas = false;
 function setup() {  
   frameRate(1 /* Default animate rate = 1 */);
   noLoop();
+
+  ONE_THIRD_PI = PI/3;
+  ONE_SIXTH_PI = PI/6;
+  SQRT_3 = sqrt(3);
 
   // Incase the user didn't create a setupFractal function, we don't want to create a ReferenceError on undefined
   (setupFractal || (() => {}))();

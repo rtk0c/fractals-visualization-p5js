@@ -30,7 +30,7 @@ function drawFractal(stage) {
   strokeWeight(2);
   let x = width/2;
   let y = 15;
-  let d = HALF_PI + PI/6;
+  let d = HALF_PI + ONE_SIXTH_PI;
   beginShape();
   for(let i = 0; i < pattern.length; ++i) {
     const c = pattern.charAt(i);
@@ -42,11 +42,11 @@ function drawFractal(stage) {
         break;
       }
       case '+': {
-        d += PI/3;
+        d += ONE_THIRD_PI;
         break;
       }
       case '-': {
-        d -= PI/3;
+        d -= ONE_THIRD_PI;
         break;
       }
     }

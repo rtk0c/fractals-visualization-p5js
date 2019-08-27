@@ -5,7 +5,7 @@ function setupFractal() {
 
 function drawFractal(stage) {
   background(0);
-  
+
   let pattern = 'F-G-G';
   let unitLength = 320;
   for(let i = 0; i < stage; ++i) {
@@ -21,7 +21,7 @@ function drawFractal(stage) {
   const DEG_120 = PI/3*2;
   let x = width/2;
   let y = 40;
-  let d = HALF_PI + PI/6;
+  let d = HALF_PI + ONE_SIXTH_PI;
   
   beginShape();
   vertex(x, y);
