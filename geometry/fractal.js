@@ -8,10 +8,8 @@ let animateEnable;
 
 let _maxStage;
 
-function setup() {
-  createCanvas(400, 400);
-  
-  stageSlider = createSlider(0, 6 /* Max stage */, 4, 1);
+function setup() {  
+  stageSlider = createSlider(0, 6 /* Default max stage */, 4, 1);
   stageSlider.input(() => {
     stageDisplay.innerHTML = stageSlider.value();
     redraw();

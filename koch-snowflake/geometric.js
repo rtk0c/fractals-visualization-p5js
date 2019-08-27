@@ -5,6 +5,8 @@ let SQRT_3;
 let triangles = [];
 
 function setupFractal() {
+  createCanvas(600, 600);
+
   ONE_THIRD_PI = PI/3;
   ONE_SIXTH_PI = PI/6;
   SQRT_3 = sqrt(3);
