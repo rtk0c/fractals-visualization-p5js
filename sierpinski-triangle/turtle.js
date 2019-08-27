@@ -4,6 +4,8 @@ function setupFractal() {
 }
 
 function drawFractal(stage) {
+  background(0);
+  
   let pattern = 'F-G-G';
   let unitLength = 320;
   for(let i = 0; i < stage; ++i) {

@@ -25,6 +25,8 @@ function populate(limit) {
 }
 
 function drawFractal(stage) {
+  background(0);
+  
   triangles.length = 0;
   populate(stage);
   for(const t of triangles) {
