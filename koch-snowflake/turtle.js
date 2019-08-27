@@ -1,7 +1,7 @@
 let fillEnable;
 
 function setupFractal() {
-  createCanvas(400, 400);
+  canvas(400, 400);
   
   fillEnable = createCheckbox('Fill', false);
   fillEnable.changed(() => redraw());

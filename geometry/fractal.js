@@ -8,7 +8,21 @@ let animateEnable;
 
 let _maxStage;
 
+let _overriddenCanvas = false;
+
 function setup() {  
+  frameRate(1 /* Default animate rate = 1 */);
+  noLoop();
+
+  // Incase the user didn't create a setupFractal function, we don't want to create a ReferenceError on undefined
+  (setupFractal || (() => {}))();
+
+  if(!_overriddenCanvas) {
+    setupInputs();
+  }
+}
+
+function setupInputs() {
   stageSlider = createSlider(0, 6 /* Default max stage */, 4, 1);
   stageSlider.input(() => {
     stageDisplay.innerHTML = stageSlider.value();
@@ -28,11 +42,6 @@ function setup() {
       noLoop();
     }
   });
-  
-  frameRate(1 /* Default animate rate = 1 */);
-  noLoop();
-  // Incase the user didn't create a setupFractal function, we don't want to create a ReferenceError on undefined
-  (setupFractal || (() => {}))();
 }
 
 function draw() {
@@ -58,4 +67,10 @@ function maxStage(m) {
  */
 function animateRate(n=0) {
   frameRate(1/n);
+}
+
+function canvas(w, h) {
+  _overriddenCanvas = true;
+  createCanvas(w, h);
+  setupInputs();
 }
