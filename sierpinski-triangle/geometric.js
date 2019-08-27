@@ -1,7 +1,7 @@
 let triangles = [];
 
 function setupFractal() {
-  canvas(400, 400);
+  setCanvasSize(400, 400);
   maxStage(8);
 }
 

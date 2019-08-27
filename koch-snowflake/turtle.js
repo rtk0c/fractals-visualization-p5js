@@ -1,11 +1,11 @@
 let fillEnable;
 
 function setupFractal() {
-  canvas(400, 400);
+  setCanvasSize(400, 400);
+  maxStage(8);
   
   fillEnable = createCheckbox('Fill', false);
   fillEnable.changed(() => redraw());
-  maxStage(8);
 }
 
 function drawFractal(stage) {

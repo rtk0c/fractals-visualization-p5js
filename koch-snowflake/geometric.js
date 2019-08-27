@@ -5,7 +5,7 @@ let SQRT_3;
 let triangles = [];
 
 function setupFractal() {
-  canvas(600, 600);
+  setCanvasSize(600, 600);
   maxStage(8);
 
   ONE_THIRD_PI = PI/3;

@@ -18,6 +18,7 @@ function setup() {
   (setupFractal || (() => {}))();
 
   if(!_overriddenCanvas) {
+    createCanvas(400, 400);
     setupInputs();
   }
 }
@@ -69,7 +70,7 @@ function animateRate(n=0) {
   frameRate(1/n);
 }
 
-function canvas(w, h) {
+function setCanvasSize(w, h) {
   _overriddenCanvas = true;
   createCanvas(w, h);
   setupInputs();
