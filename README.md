@@ -7,4 +7,4 @@ Fractals:
     - [Turtle (L-System)](https://rtk0c.github.io/fractals-visualization-p5js/koch-snowflake/turtle.html)
 2. Sierpinski Triangle
     - [Geometric](https://rtk0c.github.io/fractals-visualization-p5js/sierpinski-triangle/geometric.html)
-    - [Geometric](https://rtk0c.github.io/fractals-visualization-p5js/sierpinski-triangle/turtle.html)
+    - [Turtle (L-System)](https://rtk0c.github.io/fractals-visualization-p5js/sierpinski-triangle/turtle.html)
